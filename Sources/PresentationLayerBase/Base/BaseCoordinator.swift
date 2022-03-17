@@ -12,7 +12,7 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
     public weak var parent: CoordinatorProtocol?
     public let id = UUID()
     
-    public var viewController: UIViewController!
+    public weak var navigationController: UINavigationController!
     public var childs = [CoordinatorProtocol]()
     
     public var viewModel: ViewModel
@@ -23,10 +23,6 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
         self.viewModel = viewModel
         self.router = router
         self.presenter = presenter
-    }
-    
-    public var navigationController: UINavigationController? {
-        viewController.navigationController
     }
     
     open func start() { fatalError("implement start method") }

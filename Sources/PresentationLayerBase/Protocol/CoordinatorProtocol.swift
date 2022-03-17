@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol CoordinatorProtocol: AnyObject {
     var parent: CoordinatorProtocol? { get set }
     var id: UUID { get }
+    var navigationController: UINavigationController! { get set }
+    
     func start()
     func start(with destinationCoordinator: CoordinatorProtocol)
     func didDissmiss()
