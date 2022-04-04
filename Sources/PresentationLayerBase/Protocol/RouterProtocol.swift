@@ -31,7 +31,9 @@ public extension RouterProtocol {
         coordinator?.start(with: destinationCoordinator)
         destinationCoordinator.viewController?.modalPresentationStyle = presentationStyle
         destinationCoordinator.viewController?.modalTransitionStyle = transitionStyle
-        coordinator?.navigationController.present(destinationCoordinator.viewController!, animated: animated, completion: completion)
+        let navigationController = UINavigationController(rootViewController: destinationCoordinator.viewController!)
+        
+        coordinator?.navigationController.present(navigationController, animated: animated, completion: completion)
     }
     
     func pop(animeted: Bool = true) {
