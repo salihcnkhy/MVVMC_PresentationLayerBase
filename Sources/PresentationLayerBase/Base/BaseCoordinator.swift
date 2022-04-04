@@ -54,12 +54,12 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
 }
 
 public struct CoordinatorStartOptions: OptionSet {
-    public let rawValue: Int
+    public let rawValue: Int8
 
-    public init(rawValue: Int) {
+    public init(rawValue: Int8) {
         self.rawValue = rawValue
     }
     
-    public static let presentMode = CoordinatorStartOptions(rawValue: 0)
+    public static let presentMode = CoordinatorStartOptions(rawValue: 1)
     
 }
