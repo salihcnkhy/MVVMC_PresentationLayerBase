@@ -24,6 +24,8 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
         self.viewModel = viewModel
         self.router = router
         self.presenter = presenter
+        
+        (router as? RouterProtocol)?.setCoordinator(self)
     }
     
     open func start() { fatalError("implement start method") }

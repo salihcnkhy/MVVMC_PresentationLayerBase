@@ -12,6 +12,7 @@ import UIKit
 public protocol RouterProtocol {
     var coordinator: CoordinatorProtocol? { get }
     func dissmiss()
+    func setCoordinator(_ coordinator: CoordinatorProtocol)
 }
 
 
