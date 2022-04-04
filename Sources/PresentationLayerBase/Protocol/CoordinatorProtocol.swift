@@ -10,11 +10,16 @@ import UIKit
 
 public protocol CoordinatorProtocol: AnyObject {
     var parent: CoordinatorProtocol? { get set }
+    var viewController: UIViewController? { get set }
     var id: UUID { get }
     var navigationController: UINavigationController! { get set }
     
     func start()
-    func start(with destinationCoordinator: CoordinatorProtocol)
+    func start(with destinationCoordinator: CoordinatorProtocol, options: Set<CoordinatorStartOption>)
     func didDissmiss()
     func removeChild(with coordinator: CoordinatorProtocol)
+}
+
+public enum CoordinatorStartOption: Int {
+    case passNavigationController
 }

@@ -8,15 +8,9 @@
 import Combine
 
 open class BaseRouter: RouterProtocol {
-    public var onNavitaionNotifier = PassthroughSubject<CoordinatorProtocol, Never>()
-    
-    public weak var coordinator: CoordinatorProtocol?
+    private(set) public weak var coordinator: CoordinatorProtocol?
     
     public init() { }
-    
-    public func dissmiss() {
-        
-    }
     
     public func setCoordinator(_ coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
