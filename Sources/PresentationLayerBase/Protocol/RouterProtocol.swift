@@ -23,12 +23,12 @@ public extension RouterProtocol {
     }
     
     func push(with destinationCoordinator: CoordinatorProtocol, animated: Bool = true) {
-        coordinator?.start(with: destinationCoordinator, options: [])
+        coordinator?.start(with: destinationCoordinator)
         coordinator?.navigationController.pushViewController(destinationCoordinator.viewController!, animated: animated)
     }
     
     func present(with destinationCoordinator: CoordinatorProtocol, presentationStyle: UIModalPresentationStyle = .custom, transitionStyle: UIModalTransitionStyle = .coverVertical, completion: (() -> Void)? = nil, animated: Bool = true) {
-        coordinator?.start(with: destinationCoordinator, options: [.presentMode])
+        coordinator?.start(with: destinationCoordinator)
         destinationCoordinator.viewController?.modalPresentationStyle = presentationStyle
         destinationCoordinator.viewController?.modalTransitionStyle = transitionStyle
         coordinator?.navigationController.present(destinationCoordinator.viewController!, animated: animated, completion: completion)

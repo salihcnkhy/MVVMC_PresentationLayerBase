@@ -15,7 +15,7 @@ public protocol CoordinatorProtocol: AnyObject {
     var navigationController: UINavigationController! { get set }
     
     func start()
-    func start(with destinationCoordinator: CoordinatorProtocol, options: CoordinatorStartOptions)
+    func start(with destinationCoordinator: CoordinatorProtocol)
     func didDissmiss()
     func removeChild(with coordinator: CoordinatorProtocol)
 }

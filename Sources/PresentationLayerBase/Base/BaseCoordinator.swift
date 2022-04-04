@@ -30,8 +30,8 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
     
     open func start() { fatalError("implement start method") }
     
-    public func start(with destinationCoordinator: CoordinatorProtocol, options: CoordinatorStartOptions) {
-        if !options.contains(.presentMode) {
+    public func start(with destinationCoordinator: CoordinatorProtocol) {
+        if destinationCoordinator.navigationController == nil {
             destinationCoordinator.navigationController = navigationController
         }
         
