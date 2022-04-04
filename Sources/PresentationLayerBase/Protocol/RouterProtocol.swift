@@ -28,7 +28,7 @@ public extension RouterProtocol {
     }
     
     func present(with destinationCoordinator: CoordinatorProtocol, presentationStyle: UIModalPresentationStyle = .custom, transitionStyle: UIModalTransitionStyle = .coverVertical, completion: (() -> Void)? = nil, animated: Bool = true) {
-        coordinator?.start(with: destinationCoordinator, options: [.passNavigationController])
+        coordinator?.start(with: destinationCoordinator, options: [.presentMode])
         destinationCoordinator.viewController?.modalPresentationStyle = presentationStyle
         destinationCoordinator.viewController?.modalTransitionStyle = transitionStyle
         coordinator?.navigationController.present(destinationCoordinator.viewController!, animated: animated, completion: completion)

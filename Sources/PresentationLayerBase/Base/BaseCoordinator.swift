@@ -30,13 +30,9 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
     
     open func start() { fatalError("implement start method") }
     
-    public func start(with destinationCoordinator: CoordinatorProtocol, options: Set<CoordinatorStartOption>) {
-        
-        for option in options {
-            switch option {
-                case .passNavigationController:
-                    destinationCoordinator.navigationController = navigationController
-            }
+    public func start(with destinationCoordinator: CoordinatorProtocol, options: CoordinatorStartOptions) {
+        if !options.contains(.presentMode) {
+            destinationCoordinator.navigationController = navigationController
         }
         
         childs.append(destinationCoordinator)
@@ -55,4 +51,15 @@ open class BaseCoordinator<ViewModel, Router, Presenter>: CoordinatorProtocol {
     public func didDissmiss() {
         parent?.removeChild(with: self)
     }
+}
+
+public struct CoordinatorStartOptions: OptionSet {
+    public let rawValue: Int
+
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
+    
+    public static let presentMode = CoordinatorStartOptions(rawValue: 0)
+    
 }
