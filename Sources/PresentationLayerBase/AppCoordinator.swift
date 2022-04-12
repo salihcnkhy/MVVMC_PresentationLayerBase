@@ -19,6 +19,7 @@ open class AppCoordinator: BaseCoordinator<AppViewModelProtocol, AppRouterProtoc
     }
     
     public override func start(with destinationCoordinator: CoordinatorProtocol) {
+        super.start(with: destinationCoordinator)
         router.setRootCoordinator(destinationCoordinator)
     }
 }

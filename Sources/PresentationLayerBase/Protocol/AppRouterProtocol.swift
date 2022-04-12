@@ -22,8 +22,6 @@ public extension AppRouterProtocol {
     func setRootCoordinator(_ rootCoordinator: CoordinatorProtocol) {
         guard let window = window else { fatalError("Please setWindow at the beginning of application") }
         
-        coordinator?.start(with: rootCoordinator)
-        
         guard let viewController = rootCoordinator.viewController else { fatalError("rootCoordinator ViewController was nil") }
         
         let navigationViewController = UINavigationController(rootViewController: viewController)
