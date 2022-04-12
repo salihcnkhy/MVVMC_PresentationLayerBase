@@ -12,10 +12,15 @@ public protocol CoordinatorProtocol: AnyObject {
     var parent: CoordinatorProtocol? { get set }
     var viewController: UIViewController? { get set }
     var id: UUID { get }
-    var navigationController: UINavigationController! { get set }
     
     func start()
     func start(with destinationCoordinator: CoordinatorProtocol)
     func didDissmiss()
     func removeChild(with coordinator: CoordinatorProtocol)
+}
+
+public extension CoordinatorProtocol {
+    var navigationController: UINavigationController? {
+        viewController?.navigationController
+    }
 }

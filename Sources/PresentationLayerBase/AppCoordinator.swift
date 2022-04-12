@@ -1,24 +1,20 @@
 //
-//  File.swift
+//  AppCoordinator.swift
 //  
 //
-//  Created by 112471 on 16.03.2022.
+//  Created by Salihcan Kahya on 16.03.2022.
 //
 
-import Foundation
+import UIKit
 
-final class AppCoordinator: BaseCoordinator<AppViewModel, AppRouter, AppPresenter> {
+open class AppCoordinator: BaseCoordinator<AppViewModelProtocol, AppRouterProtocol, AppPresenterProtocol> {
     
-}
-
-final class AppPresenter: BasePresenter {
+    public func setScene(_ scene: UIWindowScene) {
+        let window = UIWindow(windowScene: scene)
+        router.setWindow(window)
+    }
     
-}
-
-final class AppRouter: BaseRouter {
-    
-}
-
-final class AppViewModel: BaseViewModel {
-    
+    public func setWindow(_ window: UIWindow) {
+        router.setWindow(window)
+    }
 }
