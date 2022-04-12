@@ -17,4 +17,8 @@ open class AppCoordinator: BaseCoordinator<AppViewModelProtocol, AppRouterProtoc
     public func setWindow(_ window: UIWindow) {
         router.setWindow(window)
     }
+    
+    public override func start(with destinationCoordinator: CoordinatorProtocol) {
+        router.setRootCoordinator(destinationCoordinator)
+    }
 }
